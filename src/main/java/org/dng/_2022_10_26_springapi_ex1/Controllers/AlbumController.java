@@ -6,6 +6,7 @@ import org.dng._2022_10_26_springapi_ex1.Model.Album;
 import org.dng._2022_10_26_springapi_ex1.Service.AlbumService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -23,12 +24,24 @@ public class AlbumController {
     }
 
     @GetMapping(path = "all")
-    public List<Album> getAllAlbums(){
+    public List<Album> getAll(){
         return albumService.getAll();
     }
 
-    @PostMapping(path = "addItem")
-    public void addAlbum(@RequestBody Album item){
+    @PostMapping(path = "Item")
+    public void add(@RequestBody Album item){
         albumService.add(item);
     }
+
+    @DeleteMapping(path = "Item/{id}")
+    public void delete(@PathVariable Long id){
+        albumService.delete(id);
+    }
+
+    @PutMapping(path = "Item")
+    public void update(@RequestBody Album item){
+        albumService.update(item);
+    }
+
+
 }

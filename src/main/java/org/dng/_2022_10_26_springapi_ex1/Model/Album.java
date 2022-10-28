@@ -1,6 +1,7 @@
 package org.dng._2022_10_26_springapi_ex1.Model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Album {
@@ -71,5 +72,18 @@ public class Album {
                 ", author='" + author + '\'' +
                 ", year='" + year + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Album album = (Album) o;
+        return Objects.equals(name, album.name) && Objects.equals(author, album.author) && Objects.equals(year, album.year);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, author, year);
     }
 }
