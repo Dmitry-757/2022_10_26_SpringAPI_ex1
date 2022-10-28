@@ -21,12 +21,12 @@ public class Album {
 
     @Basic
     @Column(name = "year")
-    private String year;
+    private int year;
 
     public Album() {
     }
 
-    public Album(String name, String author, String year) {
+    public Album(String name, String author, int year) {
         this.name = name;
         this.author = author;
         this.year = year;
@@ -56,11 +56,11 @@ public class Album {
         this.author = author;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
@@ -79,7 +79,7 @@ public class Album {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Album album = (Album) o;
-        return Objects.equals(name, album.name) && Objects.equals(author, album.author) && Objects.equals(year, album.year);
+        return year == album.year && Objects.equals(name, album.name) && Objects.equals(author, album.author);
     }
 
     @Override
