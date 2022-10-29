@@ -5,7 +5,7 @@ import org.dng._2022_10_26_springapi_ex1.Model.Album;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
+//import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -17,7 +17,7 @@ public class AlbumService {
     }
 
     public List<Album> getAll() {
-        return albumRepository.findAll();
+        return (List<Album>) albumRepository.findAll();
     }
 
     public void add(Album item) {
