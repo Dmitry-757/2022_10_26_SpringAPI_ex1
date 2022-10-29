@@ -2,6 +2,7 @@ package org.dng._2022_10_26_springapi_ex1.Service;
 
 import org.dng._2022_10_26_springapi_ex1.DAO.AlbumRepository;
 import org.dng._2022_10_26_springapi_ex1.Model.Album;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +11,10 @@ import java.util.Optional;
 
 @Service
 public class AlbumService {
+
     private final AlbumRepository albumRepository;
 
+    @Autowired
     public AlbumService(AlbumRepository albumRepository) {
         this.albumRepository = albumRepository;
     }
