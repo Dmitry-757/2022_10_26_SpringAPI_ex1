@@ -12,12 +12,18 @@ import java.util.Optional;
 @Service
 public class AlbumService {
 
-    private final AlbumRepository albumRepository;
+//    можно вот так (поле не должно быть final ! - внедрение не получится так как оно происходит уже после создания)
+//    @Autowired
+//    private AlbumRepository albumRepository;
 
+    //but if we want to have "final" field - we need to use constructor for initialization
+    private final AlbumRepository albumRepository;
     @Autowired
     public AlbumService(AlbumRepository albumRepository) {
         this.albumRepository = albumRepository;
     }
+
+
 
     public List<Album> getAll() {
         return (List<Album>) albumRepository.findAll();
